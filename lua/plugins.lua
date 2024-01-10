@@ -40,22 +40,13 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-	use ("wbthomason/packer.nvim") -- Have packer manage itself	
+	use "wbthomason/packer.nvim" -- Have packer manage itself	
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use {
- 		'nvim-tree/nvim-tree.lua',
-		requires = {
-			'nvim-tree/nvim-web-devicons', -- optional
-		},
-	}
-
-	use 'Mofiqul/vscode.nvim'	
-	use {
-  		'nvim-telescope/telescope.nvim', tag = '0.1.5',
-  		requires = { {'nvim-lua/plenary.nvim'} }
-	}	
-	
-	use 'neovim/nvim-lspconfig'
+	use { "nvim-tree/nvim-tree.lua", requires = { 'nvim-tree/nvim-web-devicons' } }
+	use "Mofiqul/vscode.nvim"
+	use { "nvim-telescope/telescope.nvim", tag = "0.1.5", requires = { {'nvim-lua/plenary.nvim'} } }	
+	use "neovim/nvim-lspconfig"
+	use "mhartington/formatter.nvim"
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
